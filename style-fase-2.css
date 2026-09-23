@@ -14,7 +14,7 @@ html {
     width: 100%;
     height: 100%;
     font-family: "Inter";
-    /*background-color: #FFFFFF;*/
+    /* background-color: #FFFFFF; */
     background-color: #f5f5f5;
 }
 
@@ -33,12 +33,13 @@ header {
 main {
     width: 100%;
     height: auto;
-    /*display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;*/
-    /*background-color: #f5f5f5;*/
-    background-color: red;
+    align-items: center; */
+    display: flow-root; /* Per evitare lo spazio del main tra header e footer dovuto ai margini di article */
+    /* background-color: red; */
+    /* background-color: #f5f5f5; */
 }
 
 article {
@@ -50,6 +51,11 @@ article {
     border: 1px solid #e4e4e4;
     margin: 1rem auto;
     border-radius: 1rem;
+    /* Per evitare il piccolo spazio aggiunto automaticamente dal browser a due
+    elementi inline (h2 è stato impostato come inline) che considera come testo,
+    devo impostare le dimensioni del font a 0. Devo però poi specificare e
+    rispristinare le dimensioni dei font degli elementi figli (h2 e p) */
+    font-size: 0;
 }
 
 article img {
@@ -59,13 +65,17 @@ article img {
 
 article h2 {
     color: #34495e;
-    /*margin: 0 0 1rem 1rem;*/
+    /* uso inline-block solo se voglio dare lo spazio verticale in basso */
+    /* display: inline-block; */
+    /* margin: 0 0 1rem 1rem; */
     display: inline;
     line-height: 1;
+    font-size: 1.5rem; /* il valore di default di h2 (24px) */
 }
 
 article p {
     margin-top: 1rem;
+    font-size: 1rem; /* il valore di default di p (16px) */
 }
 
 footer {
